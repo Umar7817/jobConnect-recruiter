@@ -133,6 +133,7 @@ function App() {
       skills
     })
     
+    
     fetch("https://jobconnect-server.onrender.com/job/post-job", {
       method: "POST",
       headers: {
