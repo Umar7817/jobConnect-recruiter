@@ -17,7 +17,7 @@ function JobPost() {
   const [companyLogo, setCompanyLogo] = useState("")
   const [description, setdescription] = useState("")
   const [skills, setSkill] = useState("")
-  const [userId, setUserId] = useState("")
+  // const [userId, setUserId] = useState("")
 
 
 
@@ -134,7 +134,7 @@ function JobPost() {
           </div>
 
           {/* 5th row  */}
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+          {/* <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="lg:w-full w-full">
               <label className="block mb-2 text-lg">User Id</label>
               <input
@@ -144,7 +144,7 @@ function JobPost() {
                 className="create-job-input"
               />
             </div>
-          </div>
+          </div> */}
 
           {/* 6th row  */}
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -171,7 +171,6 @@ function JobPost() {
               experienceLevel,
               companyLogo,
               description,
-              userId,
               skills
             )}
           >

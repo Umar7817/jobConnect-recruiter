@@ -34,7 +34,7 @@ function App() {
       return toast.error("Please Fill Details")
     }
     // Register function
-    fetch("http://localhost:3000/auth/signup", {
+    fetch("https://jobconnect-server.onrender.com/auth/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -59,7 +59,7 @@ function App() {
       return toast.error("Please Fill Details")
     }
     // Login function
-    fetch("http://localhost:3000/auth/login", {
+    fetch("https://jobconnect-server.onrender.com/auth/login", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -83,7 +83,7 @@ function App() {
 
   useEffect(() => {
     // Fetch candidate data
-    fetch("http://localhost:3000/job/get-candidates")
+    fetch("https://jobconnect-server.onrender.com/job/get-candidates")
       .then((res) => res.json())
       .then((data) => {
         setCandidate(data);
@@ -115,10 +115,9 @@ function App() {
     experienceLevel,
     companyLogo,
     description,
-    userId,
     skills
   ) => {
-    if(!jobTitle || !companyName || !minPrice || !maxPrice || !salaryType || !jobLocation || !experienceLevel || !companyLogo || !description || !userId || !skills ) {
+    if(!jobTitle || !companyName || !minPrice || !maxPrice || !salaryType || !jobLocation || !experienceLevel || !companyLogo || !description ||  !skills ) {
       return toast.error("please fill all information")
     }
      JSON.stringify({
@@ -131,11 +130,10 @@ function App() {
       experienceLevel,
       companyLogo,
       description,
-      userId,
       skills
     })
     
-    fetch("http://localhost:3000/job/post-job", {
+    fetch("https://jobconnect-server.onrender.com/job/post-job", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -151,7 +149,6 @@ function App() {
         experienceLevel,
         companyLogo,
         description,
-        userId, 
         skills
       
       }),
@@ -163,6 +160,7 @@ function App() {
       } else {
         toast.success("Job Posted Successfully");
         setJobPost(data);
+        nevigate("posted-jobs")
       }
     
     })
@@ -201,7 +199,7 @@ function App() {
       skills
     })
     
-    fetch(`http://localhost:3000/job/edit-jobs/${_id}`, {
+    fetch(`https://jobconnect-server.onrender.com/job/edit-jobs/${_id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
@@ -237,7 +235,7 @@ function App() {
   };
 
  const deletePostedJob = (_id) => {
-  fetch(`http://localhost:3000/job/delete-jobs/${_id}`, {
+  fetch(`https://jobconnect-server.onrender.com/job/delete-jobs/${_id}`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
@@ -258,7 +256,7 @@ function App() {
  }
 
  const appliedByCandidate =  async (_id) => {
-  await fetch(`http://localhost:3000/job/applied-by/${_id}`, {
+  await fetch(`https://jobconnect-server.onrender.com/job/applied-by/${_id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -282,7 +280,7 @@ function App() {
   
 
   const getPostedJobs =  () => {
-    fetch("http://localhost:3000/job/get-jobs", {
+    fetch("https://jobconnect-server.onrender.com/job/get-jobs", {
       method: "GET",
       headers: {
         "Content-type": "application/json",
